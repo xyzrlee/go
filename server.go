@@ -14,10 +14,6 @@ func init() {
 
 func main() {
 
-	var a []string
-	a = append(a, "asdf")
-	logger.Debugw("", "a", a)
-
 	var listen string
 	flag.StringVar(&listen, "listen", ":53", "listen address")
 	flag.Parse()
