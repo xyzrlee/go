@@ -4,9 +4,8 @@ import (
 	"flag"
 	"net"
 
-	// "github.com/xyzrlee/go/logger"
 	"./dns"
-	"./logger"
+	"github.com/xyzrlee/go/logger"
 )
 
 func init() {
@@ -14,6 +13,10 @@ func init() {
 }
 
 func main() {
+
+	var a []string
+	a = append(a, "asdf")
+	logger.Debugw("", "a", a)
 
 	var listen string
 	flag.StringVar(&listen, "listen", ":53", "listen address")
@@ -40,7 +43,8 @@ func main() {
 }
 
 func Serve(pc net.PacketConn, addr net.Addr, buf []byte) {
-	logger.Debugf("message:% x", buf)
+	defer logger.Sync()
+	logger.Debugf("buf: % x, length: %d", buf, len(buf))
 	message := dns.Decode(buf)
 	logger.Infow("", "message", message)
 	// pc.WriteTo(buf, addr)

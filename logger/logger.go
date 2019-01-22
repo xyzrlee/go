@@ -135,3 +135,8 @@ func Panic(args ...interface{}) {
 func Fatal(args ...interface{}) {
 	sugar.Fatal(args...)
 }
+
+// Sync flush log buffer
+func Sync() {
+	logger.Sync()
+}
