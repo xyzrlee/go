@@ -9,13 +9,12 @@ type Header struct {
 	ARCount uint16
 }
 
-func NewHeader(reader *reader) *Header {
-	header := Header{}
+func (header *Header) Read(reader *reader) *Header {
 	header.ID = reader.readUInt16()
-	header.Flags = NewFlags(reader)
+	header.Flags = (&Flags{}).Read(reader)
 	header.QDCount = reader.readUInt16()
 	header.ANCount = reader.readUInt16()
 	header.NSCount = reader.readUInt16()
 	header.ARCount = reader.readUInt16()
-	return &header
+	return header
 }

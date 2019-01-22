@@ -6,10 +6,9 @@ type Question struct {
 	QClass uint16
 }
 
-func NewQuestion(reader *reader) *Question {
-	question := Question{}
+func (question *Question) Read(reader *reader) *Question {
 	question.QName = reader.readName()
 	question.QType = reader.readUInt16()
 	question.QClass = reader.readUInt16()
-	return &question
+	return question
 }
