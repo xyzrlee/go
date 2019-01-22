@@ -48,90 +48,94 @@ func SetLevel(level Level) {
 
 // Debugw logs a message with some additional context. The variadic key-value pairs are treated as they are in With.
 func Debugw(msg string, keysAndValues ...interface{}) {
-	sugar.Debugw(msg, keysAndValues)
+	sugar.Debugw(msg, keysAndValues...)
 }
 
 // Infow logs a message with some additional context. The variadic key-value pairs are treated as they are in With.
 func Infow(msg string, keysAndValues ...interface{}) {
-	sugar.Infow(msg, keysAndValues)
+	sugar.Infow(msg, keysAndValues...)
 }
 
 // Warnw logs a message with some additional context. The variadic key-value pairs are treated as they are in With.
 func Warnw(msg string, keysAndValues ...interface{}) {
-	sugar.Warnw(msg, keysAndValues)
+	sugar.Warnw(msg, keysAndValues...)
 }
 
 // Errorw logs a message with some additional context. The variadic key-value pairs are treated as they are in With.
 func Errorw(msg string, keysAndValues ...interface{}) {
-	sugar.Errorw(msg, keysAndValues)
+	sugar.Errorw(msg, keysAndValues...)
 }
 
 // Panicw logs a message with some additional context. The variadic key-value pairs are treated as they are in With.
 func Panicw(msg string, keysAndValues ...interface{}) {
-	sugar.Panicw(msg, keysAndValues)
+	sugar.Panicw(msg, keysAndValues...)
 }
 
 // Fatalw logs a message with some additional context. The variadic key-value pairs are treated as they are in With.
 func Fatalw(msg string, keysAndValues ...interface{}) {
-	sugar.Fatalw(msg, keysAndValues)
+	sugar.Fatalw(msg, keysAndValues...)
 }
 
 // Debugf uses fmt.Sprintf to log a templated message.
 func Debugf(template string, args ...interface{}) {
-	sugar.Debugf(template, args)
+	sugar.Debugf(template, args...)
 }
 
 // Infof uses fmt.Sprintf to log a templated message.
 func Infof(template string, args ...interface{}) {
-	sugar.Infof(template, args)
+	sugar.Infof(template, args...)
 }
 
 // Warnf uses fmt.Sprintf to log a templated message.
 func Warnf(template string, args ...interface{}) {
-	sugar.Warnf(template, args)
+	sugar.Warnf(template, args...)
 }
 
 // Errorf uses fmt.Sprintf to log a templated message.
 func Errorf(template string, args ...interface{}) {
-	sugar.Errorf(template, args)
+	sugar.Errorf(template, args...)
 }
 
 // Panicf uses fmt.Sprintf to log a templated message.
 func Panicf(template string, args ...interface{}) {
-	sugar.Panicf(template, args)
+	sugar.Panicf(template, args...)
 }
 
 // Fatalf uses fmt.Sprintf to log a templated message.
 func Fatalf(template string, args ...interface{}) {
-	sugar.Fatalf(template, args)
+	sugar.Fatalf(template, args...)
 }
 
 // Debug uses fmt.Sprint to construct and log a message.
 func Debug(args ...interface{}) {
-	sugar.Debug(args)
+	sugar.Debug(args...)
 }
 
 // Info uses fmt.Sprint to construct and log a message.
 func Info(args ...interface{}) {
-	sugar.Info(args)
+	sugar.Info(args...)
 }
 
 // Warn uses fmt.Sprint to construct and log a message.
 func Warn(args ...interface{}) {
-	sugar.Warn(args)
+	sugar.Warn(args...)
 }
 
 // Error uses fmt.Sprint to construct and log a message.
 func Error(args ...interface{}) {
-	sugar.Error(args)
+	sugar.Error(args...)
 }
 
 // Panic uses fmt.Sprint to construct and log a message.
 func Panic(args ...interface{}) {
-	sugar.Panic(args)
+	sugar.Panic(args...)
 }
 
 // Fatal uses fmt.Sprint to construct and log a message.
 func Fatal(args ...interface{}) {
-	sugar.Fatal(args)
+	sugar.Fatal(args...)
+}
+
+func Sync() {
+	logger.Sync()
 }
