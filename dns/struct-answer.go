@@ -15,6 +15,6 @@ func (answer *Answer) Read(reader *reader) *Answer {
 	answer.Class = reader.readUInt16()
 	answer.TTL = reader.readUInt32()
 	answer.RDLength = reader.readUInt16()
-	answer.RData = new(DefaultRD).Read(reader, answer.RDLength)
+	answer.RData = GetRD(answer.Type).Read(reader, answer.RDLength)
 	return answer
 }

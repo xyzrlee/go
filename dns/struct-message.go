@@ -1,9 +1,5 @@
 package dns
 
-import (
-	"github.com/xyzrlee/go/logger"
-)
-
 type Message struct {
 	Header      *Header
 	Questions   []*Question
@@ -13,17 +9,17 @@ type Message struct {
 }
 
 func Decode(data []byte) *Message {
-	reader := &reader{data: data, offset: 0}
+	reader := reader{data: data, offset: 0}
 	message := Message{}
-	message.Header = decodeHeader(reader)
-	message.Questions = decodeQuestions(reader, message.Header.QDCount)
-	message.Answers = decodeAnswers(reader, message.Header.ANCount)
+	message.Header = decodeHeader(&reader)
+	message.Questions = decodeQuestions(&reader, message.Header.QDCount)
+	message.Answers = decodeAnswers(&reader, message.Header.ANCount)
 	return &message
 }
 
 func decodeHeader(reader *reader) *Header {
 	header := new(Header).Read(reader)
-	logger.Debugw("header decoded", "header", header)
+	// logger.Debugw("header decoded", "header", header)
 	return header
 }
 
@@ -32,7 +28,7 @@ func decodeQuestions(reader *reader, qdcount uint16) []*Question {
 	for i := 0; i < int(qdcount); i++ {
 		questions = append(questions, new(Question).Read(reader))
 	}
-	logger.Debugw("questions decoded", "questions", questions)
+	// logger.Debugw("questions decoded", "questions", questions)
 	return questions
 }
 
@@ -41,6 +37,6 @@ func decodeAnswers(reader *reader, ancount uint16) []*Answer {
 	for i := 0; i < int(ancount); i++ {
 		answers = append(answers, new(Answer).Read(reader))
 	}
-	logger.Debugw("answer decoded", "answers", answers)
+	// logger.Debugw("answer decoded", "answers", answers)
 	return answers
 }
